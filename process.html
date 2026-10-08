@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jade | Process</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <header>
+    <div class="container nav-container">
+      <div class="nav-header">
+        <div class="logo">Jade</div>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="process.html" class="active">Process</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="process-section mt-3 mb-3">
+      <h1 class="text-center page-title mb-3">Behind the Scenes</h1>
+
+      <div class="process-wrapper">
+        <div class="tape tape-top"></div>
+        <div class="process-content mb-3">
+          <h2 class="mb-2">Wireframes & Prototyping</h2>
+          <p class="mb-1">
+            Before moving on to the final visual design phase, 
+            I used wireframes to map out the website's overall structure. During this phase, 
+            I focused on the page hierarchy, navigation flow, content layout, and the relationships between different sections. 
+            These early layouts helped me define the navigation paths users would take between the landing page, portfolio, resume, contact, and process pages, while ensuring the interface remained clean and stylistically consistent. 
+            Since the majority of the collected work featured on the site consists of photography, I wanted to create a peaceful and serene atmosphere, which is why I chose to use off-white extensively. 
+            The inclusion of sticky note elements was also intended to complement the notebook theme.
+          </p>
+          <div class="wireframe-gallery gallery-grid">
+            <div class="wireframe-item">
+              <img src="images/color-test.png" alt="Wireframe sketch on paper">
+              <p class="mt-1">Contrast Checker</p>
+            </div>
+            <div class="wireframe-item">
+              <img src="images/design-script.png" alt="Figma wireframe">
+              <p class="mt-1">Digital Prototype Layout</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="process-content">
+          <h2 class="mb-2">Accessibility Statement</h2>
+          <p>
+            Accessibility is a key consideration in my design decisions, as I want the website to be not only visually appealing but also accessible to a wide range of users. 
+            Throughout the design process, I considered the user experience across various devices, screen sizes, and browsing environments. 
+            I carefully adjusted the color contrast to ensure that my chosen color scheme passed the contrast checker. 
+          </p>
+          <p class="mt-1">
+            Additionally, I deliberately avoided using a harsh, pure white interface, opting instead for an off-white background to reduce eye strain and create a more comfortable reading experience. 
+            From a structural perspective, I utilized semantic HTML tags such as &lt;header&gt;&lt;/header&gt;, &lt;main&gt;&lt;/main&gt;, &lt;article&gt;&lt;/article&gt;, and &lt;form&gt;&lt;/form&gt; to clarify the content hierarchy and better support screen readers. 
+            Through responsive media queries, I adjusted typography, spacing, and click targets for smaller screens, ensuring the website remains readable and easy to interact with on mobile devices.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2026 Ziting Huang (Jade). All rights reserved.
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

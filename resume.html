@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jade | Resume</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container nav-container">
+      <div class="nav-header">
+        <div class="logo">Jade</div>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="resume.html" class="active">Resume</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="process.html">Process</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="resume-section mt-3 mb-3">
+      <h1 class="text-center page-title page-title-resume">Curriculum Vitae</h1>
+
+      <div class="resume-actions text-center">
+        <button class="btn" onclick="downloadPDF()">Download as PDF</button>
+      </div>
+
+      <div class="resume-wrapper" id="resume-to-print">
+        <div class="tape tape-top"></div>
+
+        <div class="resume-content">
+          <div class="resume-header text-center">
+            <h2 class="resume-pdf-name">Ziting Huang (Jade)</h2>
+            <p class="resume-pdf-subtitle">Curriculum Vitae</p>
+          </div>
+
+          <div class="resume-block">
+            <h2>Education</h2>
+            <div class="resume-details">
+              <h3>University of Toronto Mississauga (UTM)</h3>
+              <p class="institution">
+                Double Major in Economics and Communication, Culture, Information &amp; Technology (CCIT)
+              </p>
+              <p>2023 - Present</p>
+              <p class="resume-top-gap">
+                I am currently studying economics and media, with a growing interest in digital design, visual communication, and interactive experiences.
+              </p>
+            </div>
+          </div>
+
+          <div class="resume-block">
+            <h2>Skills</h2>
+            <div class="resume-details">
+              <h3>Design Tools</h3>
+              <p>Adobe Illustrator, Adobe Photoshop, Adobe InDesign<br>Figma, Unity</p>
+
+              <h3 class="resume-subheading-gap">Web &amp; Interactive</h3>
+              <p>HTML5, CSS3, basic JavaScript</p>
+
+              <h3 class="resume-subheading-gap">Creative Interests</h3>
+              <p>Visual design, layout, user flow, and interactive storytelling</p>
+            </div>
+          </div>
+
+          <div class="resume-block">
+            <h2>Selected Project</h2>
+            <div class="resume-details">
+              <h3>Soft Noise — Interactive Journaling Website</h3>
+              <p>
+                Soft Noise is a website project centered around mood, journaling, and emotional expression. It was designed as a gentle space where users can choose a mood, write down their thoughts, and look back on past entries.
+              </p>
+
+              <p class="resume-top-gap">In this project, I worked on:</p>
+              <ul class="skills-list">
+                <li>planning the mood-based user flow</li>
+                <li>designing the visual style and page layout</li>
+                <li>building parts of the website with HTML, CSS, and basic JavaScript</li>
+                <li>thinking about how interaction and design can make the experience feel softer and more comfortable</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="resume-block last-block">
+            <h2>Personal Practice</h2>
+            <div class="resume-details">
+              <p>
+                I am also interested in photography and visual presentation. Through personal image-making and web design, I often pay attention to atmosphere, composition, and the emotional tone of a page.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2026 Ziting Huang (Jade). All rights reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+
+    if (menuToggle && mainNav) {
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('open');
+        mainNav.classList.toggle('active');
+      });
+    }
+
+    function downloadPDF() {
+      const element = document.getElementById('resume-to-print');
+      document.body.classList.add('pdf-exporting');
+
+      setTimeout(() => {
+        const opt = {
+          margin: [10, 10, 10, 10],
+          filename: 'Ziting_Huang_CV_final.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: {
+            scale: 2,
+            useCORS: true,
+            backgroundColor: null,
+            scrollX: 0,
+            scrollY: 0
+          },
+          jsPDF: {
+            unit: 'mm',
+            format: 'a4',
+            orientation: 'portrait'
+          }
+        };
+
+        html2pdf()
+          .set(opt)
+          .from(element)
+          .save()
+          .then(() => {
+            document.body.classList.remove('pdf-exporting');
+          })
+          .catch((error) => {
+            document.body.classList.remove('pdf-exporting');
+            console.error('PDF export failed:', error);
+          });
+      }, 60);
+    }
+  </script>
+</body>
+</html>
